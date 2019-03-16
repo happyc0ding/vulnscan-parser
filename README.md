@@ -4,13 +4,13 @@ Parse scan results into python objects, i.e. Nessus, Nmap, testssl, metasploit, 
 This tool parses verious scan results while trying to map them to a more or less similar structure. All parsers are memory efficient, huge files should not cause any problems.
 
 Currently supported:
-* Nessus (v2)
-* testssl (3.0)
+* Nessus (XML, v2)
+* testssl (3.0, Json and Json pretty)
 * Nmap (XML)
-* Sslyze (Json and Json pretty)
+* Sslyze (XML)
 * sslscan (XML from rbsec)
 * Metasploit (Workspace export or Json of the new MSF5 API)
-* Nikto
+* Nikto (XML)
 
 Some values are modified and due to the insanity of the various formats some compromises are necessary between trying to keep the original naming and structure and a sane data model to work with.
 
@@ -18,7 +18,7 @@ Parsing multiple files via the "parse()" method is possible, parsing overlapping
 
 I'm pretty sure there are still some bugs left.
 
-## Important
+# Important
 This code is under development.
 
 # Requirements
@@ -48,5 +48,15 @@ for plugin_id, plugin in nessus_parser.plugins.items():
   print(plugin.pluginID)
   for finding in plugin.findings:
     print(finding.id)
+
+for cert_id, certificate in nessus_parser.certificates.items():
+  print(certificate.subject)
+  print(certificate.not_after)
+  print(certificate.sha2_fingerprint)
+  
+for c_id, cipher in nessus_parser.ciphers.items():
+  print(cipher.name)
+  print(cipher.port)
+  print(cipher.host.ip)
 ```
-The other parsers work in a similar way.
+The other parsers work in a similar way, although there are, of course, some differences.
