@@ -9,6 +9,8 @@ Currently supported:
 * Nmap (XML)
 * Sslyze (Json and Json pretty)
 * sslscan (XML from rbsec)
+* Metasploit (Workspace export or Json of the new MSF5 API)
+* Nikto
 
 Some values are modified and due to the insanity of the various formats some compromises are necessary between trying to keep the original naming and structure and a sane data model to work with.
 
@@ -24,7 +26,7 @@ Python 3, see requirements.txt / setup.py
 
 # Usage
 Just import the parser and work on the results.
-```
+```python
 from vulnscan_parser.parser.nessus.xml import NessusParserXML
 
 nessus_parser = NessusParserXML()
@@ -37,4 +39,14 @@ for finding_id, finding in nessus_parser.findings.items():
 for ip, host in nessus_parser.hosts.items():
   print(host.ip)
   print(host.hostnames)
+
+for service_id, service in nessus_parser.services.items():
+  print(service.protocol)
+  print(service.port)
+
+for plugin_id, plugin in nessus_parser.plugins.items():
+  print(plugin.pluginID)
+  for finding in plugin.findings:
+    print(finding.id)
 ```
+The other parsers work in a similar way.
