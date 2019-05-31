@@ -2,7 +2,7 @@ import logging
 import json
 import os
 import re
-from itertools import islice
+from datetime import datetime
 
 from vulnscan_parser.parser.base import VSBaseParser
 from vulnscan_parser.models.testssl.finding import TestsslFinding
@@ -229,11 +229,14 @@ class TestsslParserJson(VSBaseParser):
             LOGGER.warning('VSCertificate ({}) property already set: "{}". First one takes precedence'.format(
                 cert.id, prop_name))
         else:
-            setattr(cert, prop_name, finding.finding)
-            if 'cert_keysize' == prop_name:
-                algo, bits, _ = finding.finding.split(' ')
-                cert.m_public_key_algorithm = algo
-                cert.m_public_key_len = int(bits)
+            if prop_name.startswith('cert_notafter') or prop_name.startswith('cert_notbefore'):
+                setattr(cert, prop_name, datetime.strptime(finding.finding, '%Y-%m-%d %H:%M'))
+            else:
+                setattr(cert, prop_name, finding.finding)
+                if prop_name.startswith('cert_keysize'):
+                    algo, bits, _ = finding.finding.split(' ')
+                    cert.m_public_key_algorithm = algo
+                    cert.m_public_key_len = int(bits)
 
     def _handle_cipher(self, finding):
         cipher = TestsslCipher()
@@ -305,14 +308,15 @@ class TestsslParserJson(VSBaseParser):
 
     @staticmethod
     def is_valid_file(file):
-        head = VSBaseParser.get_file_head(file, 3)
+        head = VSBaseParser.get_file_head(file, 16)
         if head is None:
             LOGGER.error('Unable to read file: {}'.format(file))
             return False
         else:
             return len(head) > 2 and\
                 ((head[0].startswith('[') and all(x in head[2].lower() for x in ('id', ':', '"')))
-                 or (head[0].startswith('{') and all(x in head[1].lower() for x in ('invocation', 'testssl'))))
+                 or (head[0].startswith('{') and
+                     any(all(x in h.lower() for x in ('invocation', 'testssl')) for h in head)))
 
     @staticmethod
     def _parse_by_sep(line, sep):

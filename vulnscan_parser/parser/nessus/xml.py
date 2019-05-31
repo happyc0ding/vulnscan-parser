@@ -199,6 +199,9 @@ class NessusParserXML(VSBaseParser):
                     elif 'ReportItem' == element.tag:
                         plugin = self.handle_plugin(element, host)
                         self.handle_finding(element, host, plugin)
+                    elif 'ReportHost' == element.tag:
+                        self._parse_add_hostnames(host)
+                        self._parse_add_services(host)
                     # # iterative parsing: yield after every host
                     # elif parse_hosts_iterative and 'ReportHost' == element.tag:
                     #     plugin_dict = {plugin.pluginID: plugin for plugin in host.plugins}
@@ -309,6 +312,7 @@ class NessusParserXML(VSBaseParser):
             if host_prop_name in self.DATE_PROPERTIES:
                 # remove double spaces
                 host_prop_value = host_prop_value.replace('  ', ' ')
+                host_prop_value = datetime.strptime(host_prop_value, '%a %b %d %H:%M:%S %Y')
 
             # set other attributes, also overwrite previously read 'name' attribute with 'host-ip' tag
             try:
@@ -353,10 +357,10 @@ class NessusParserXML(VSBaseParser):
         # add src file
         host.src_file.add(self._curr_filename)
         # add hostnames
-        self._parse_add_hostnames(host)
+        #self._parse_add_hostnames(host)
         # add services
         # TODO: only simple service detection for now
-        self._parse_add_services(host)
+        #self._parse_add_services(host)
 
         #LOGGER.debug('handled host {} with {}'.format(host.ip, host))
 
@@ -385,7 +389,11 @@ class NessusParserXML(VSBaseParser):
 
         # noinspection PyBroadException
         try:
-            for line in finding.plugin_output.split('\n'):
+            separator = '\n'
+            # WTF Tenable?
+            if finding.plugin_output.startswith('Subject Name: \\n\\n'):
+                separator = '\\n'
+            for line in finding.plugin_output.split(separator):
                 if line.startswith('Subject Name:'):
                     is_subject = True
                 elif line.startswith('Issuer Name:'):
@@ -393,14 +401,8 @@ class NessusParserXML(VSBaseParser):
                     is_issuer = True
                 elif self._setattr_by_condition_str(line, 'Not Valid Before: ', cert, 'not_before'):
                     cert.not_before = datetime.strptime(cert.not_before, self.CERT_DATE_PATTERN_DFLT)
-                    # TODO: experimental
-                    cert.not_before = cert.not_before.replace(tzinfo=timezone.utc)
-                    cert.not_before = cert.not_before.astimezone(timezone.utc)
                 elif self._setattr_by_condition_str(line, 'Not Valid After: ', cert, 'not_after'):
                     cert.not_after = datetime.strptime(cert.not_after, self.CERT_DATE_PATTERN_DFLT)
-                    # TODO: experimental
-                    cert.not_after = cert.not_after.replace(tzinfo=timezone.utc)
-                    cert.not_after = cert.not_after.astimezone(timezone.utc)
                 elif line.startswith('Key Length: '):
                     cert.public_key_len = int(line[len('Key Length: '):].split(' ')[0])
                 elif line.startswith('Serial Number: '):
@@ -623,6 +625,7 @@ class NessusParserXML(VSBaseParser):
 
     def _parse_add_services(self, host):
         service_software = {}
+
         for finding in host.findings:
             if finding.port < 1:
                 continue
@@ -654,11 +657,13 @@ class NessusParserXML(VSBaseParser):
                             sw_name = line
                 else:
                     for line in lines:
-                        for prefix in ('Installed version :', 'Reported version :'):
-                            sw_version = self._get_output_value_by_prefix(line, prefix)
-                            break
+                        for prefix in ('Installed version', 'Reported version'):
+                            if line.lstrip(' ').startswith(prefix):
+                                sw_version = self._get_output_value_by_sep(line, ':')
+                                break
 
-                        sw_name = self._get_output_value_by_prefix(line, 'Product                :')
+                        if 'Product' in line:
+                            sw_name = self._get_output_value_by_sep(line, ':')
 
             # TODO: normalize name
 
@@ -691,3 +696,9 @@ class NessusParserXML(VSBaseParser):
         if prefix not in line:
             return ''
         return line[:line.find(prefix)].strip(' ')
+
+    @staticmethod
+    def _get_output_value_by_sep(line, sep):
+        if sep not in line:
+            return ''
+        return line.split(sep)[1].strip(' ')

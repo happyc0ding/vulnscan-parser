@@ -102,6 +102,7 @@ class SSLScanParserXML(VSBaseParser):
                             self._services[service_id]
                         except KeyError:
                             service = SslscanService()
+                            service.host = host
                             service.protocol = 'TCP'
                             service.port = port
                             service.id = service_id
@@ -110,6 +111,7 @@ class SSLScanParserXML(VSBaseParser):
                 elif host is not None:
                     if 'cipher' == element.tag:
                         cipher = SslscanCipher()
+                        cipher.host = host
                         cipher.key_size = int(element.attrib['bits'])
                         cipher.name = element.attrib['cipher']
                         cipher.proto = element.attrib['sslversion']
@@ -156,15 +158,9 @@ class SSLScanParserXML(VSBaseParser):
                             for alt_name in alt_names:
                                 certificate.altnames.append(alt_name.strip(' '))
                         elif 'not-valid-after' == element.tag:
-                            certificate.not_after = datetime.strptime(
-                                element.text, '%b %d %H:%M:%S %Y %Z').replace(tzinfo=timezone.utc)
-                            # TODO: experimental
-                            certificate.not_after = certificate.not_after.astimezone(timezone.utc)
+                            certificate.not_after = datetime.strptime(element.text, '%b %d %H:%M:%S %Y %Z')
                         elif 'not-valid-before' == element.tag:
-                            certificate.not_before = datetime.strptime(
-                                element.text, '%b %d %H:%M:%S %Y %Z').replace(tzinfo=timezone.utc)
-                            # TODO: experimental
-                            certificate.not_before = certificate.not_before.astimezone(timezone.utc)
+                            certificate.not_before = datetime.strptime(element.text, '%b %d %H:%M:%S %Y %Z')
 
                         elif 'self-signed' == element.tag and 'true' == element.text:
                             self._get_create_finding(host, port, hostname, 'selfsignedcert')

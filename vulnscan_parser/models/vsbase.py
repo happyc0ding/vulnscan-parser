@@ -9,6 +9,7 @@ class VSBaseModel:
         'hosts',
         'finding',
         'findings',
+        'service',
         'services',
         'vulnerability',
         'vulnerabilities'

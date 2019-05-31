@@ -27,13 +27,21 @@ class NessusParseNormalFile1TestCase(unittest.TestCase):
     PLUGIN_NUM = 134
     PLUGIN_PROPS = ('id', 'hosts', 'findings', 'pluginName', 'pluginFamily')
 
+    parser = None
+    file1 = ''
+
     @classmethod
     def setUpClass(cls):
         config_parser = ConfigParser()
         config_parser.read(os.path.join(os.path.dirname(__file__), 'config'))
+        cls.file1 = os.path.expanduser(config_parser.get('nessus', 'file1'))
         cls.parser = NessusParserXML()
+        cls._parse()
+
+    @classmethod
+    def _parse(cls):
         print('---------------------------------- PARSE ----------------------------------------------------------')
-        cls.parser.parse(os.path.expanduser(config_parser.get('nessus', 'file1')))
+        cls.parser.parse(cls.file1)
 
     def test_parsing_basics(self):
         self.assertGreater(len(self.parser.findings), 0, 'No findings after parsing')
@@ -102,3 +110,16 @@ class NessusParseNormalFile1TestCase(unittest.TestCase):
             for finding in plugin.findings:
                 self.assertIsInstance(finding, NessusFinding)
                 self.assertIn(finding, self.parser.findings.values())
+
+    def test_parse_again(self):
+        findings = self.parser.findings
+        plugins = self.parser.plugins
+        hosts = self.parser.hosts
+        certs = self.parser.certificates
+        ciphers = self.parser.ciphers
+        self._parse()
+        self.assertEqual(self.parser.findings, findings)
+        self.assertEqual(self.parser.plugins, plugins)
+        self.assertEqual(self.parser.hosts, hosts)
+        self.assertEqual(self.parser.certificates, certs)
+        self.assertEqual(self.parser.ciphers, ciphers)
