@@ -22,6 +22,8 @@ I'm pretty sure there are still some bugs left.
 # Important
 This code is under development.
 
+Since extracting data about ip/hostname etc. from x509 certificates is not possible, please use the following pattern to create the files: ```openssl_ip-TCP-port-hostname.org.pem``` -> i.e. ```openssl_1.2.3.4-TCP-443-example.org.pem```
+
 # Requirements
 Python 3, see requirements.txt / setup.py
 
