@@ -1,0 +1,942 @@
+[
+         {
+              "id"           : "service",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "HTTP"
+          }
+,         {
+              "id"           : "pre_128cipher",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "No 128 cipher limit bug"
+          }
+,         {
+              "id"           : "SSLv2",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "SSLv3",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "TLS1",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "offered"
+          }
+,         {
+              "id"           : "TLS1_1",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "offered"
+          }
+,         {
+              "id"           : "TLS1_2",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "offered"
+          }
+,         {
+              "id"           : "TLS1_3",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "not offered and downgraded to a weaker protocol"
+          }
+,         {
+              "id"           : "NPN",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "offered with http/1.1 (advertised)"
+          }
+,         {
+              "id"           : "ALPN",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "http/1.1"
+          }
+,         {
+              "id"           : "cipherlist_NULL",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cwe"          : "CWE-327",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "cipherlist_aNULL",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cwe"          : "CWE-327",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "cipherlist_EXPORT",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cwe"          : "CWE-327",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "cipherlist_LOW",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cwe"          : "CWE-327",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "cipherlist_3DES_IDEA",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "HIGH",
+              "cwe"          : "CWE-310",
+              "finding"      : "offered"
+          }
+,         {
+              "id"           : "cipherlist_AVERAGE",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "LOW",
+              "cwe"          : "CWE-310",
+              "finding"      : "offered"
+          }
+,         {
+              "id"           : "cipherlist_STRONG",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "offered"
+          }
+,         {
+              "id"           : "cipher_order",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "server"
+          }
+,         {
+              "id"           : "protocol_negotiated",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "Default protocol TLS1.2"
+          }
+,         {
+              "id"           : "cipher_negotiated",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "ECDHE-RSA-AES128-GCM-SHA256, 256 bit ECDH (P-256)"
+          }
+,         {
+              "id"           : "cipherorder_TLSv1",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "ECDHE-RSA-AES128-SHA ECDHE-RSA-AES256-SHA DHE-RSA-AES128-SHA DHE-RSA-AES256-SHA ECDHE-RSA-DES-CBC3-SHA AES128-SHA AES256-SHA DES-CBC3-SHA DHE-RSA-CAMELLIA256-SHA CAMELLIA256-SHA DHE-RSA-CAMELLIA128-SHA CAMELLIA128-SHA"
+          }
+,         {
+              "id"           : "cipherorder_TLSv1_1",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "ECDHE-RSA-AES128-SHA ECDHE-RSA-AES256-SHA DHE-RSA-AES128-SHA DHE-RSA-AES256-SHA ECDHE-RSA-DES-CBC3-SHA AES128-SHA AES256-SHA DES-CBC3-SHA DHE-RSA-CAMELLIA256-SHA CAMELLIA256-SHA DHE-RSA-CAMELLIA128-SHA CAMELLIA128-SHA"
+          }
+,         {
+              "id"           : "cipherorder_TLSv1_2",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "ECDHE-RSA-AES128-GCM-SHA256 ECDHE-RSA-AES256-GCM-SHA384 DHE-RSA-AES128-GCM-SHA256 DHE-RSA-AES256-GCM-SHA384 ECDHE-RSA-AES128-SHA256 ECDHE-RSA-AES128-SHA ECDHE-RSA-AES256-SHA384 ECDHE-RSA-AES256-SHA DHE-RSA-AES128-SHA256 DHE-RSA-AES128-SHA DHE-RSA-AES256-SHA256 DHE-RSA-AES256-SHA ECDHE-RSA-DES-CBC3-SHA AES128-GCM-SHA256 AES256-GCM-SHA384 AES128-SHA256 AES256-SHA256 AES128-SHA AES256-SHA DES-CBC3-SHA DHE-RSA-CAMELLIA256-SHA CAMELLIA256-SHA DHE-RSA-CAMELLIA128-SHA CAMELLIA128-SHA"
+          }
+,         {
+              "id"           : "TLS_extensions",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "'server name/#0' 'renegotiation info/#65281' 'EC point formats/#11' 'session ticket/#35' 'heartbeat/#15' 'next protocol/#13172' 'application layer protocol negotiation/#16'"
+          }
+,         {
+              "id"           : "TLS_session_ticket",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "valid for 300 seconds only (<daily)"
+          }
+,         {
+              "id"           : "SSL_sessionID_support",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "yes"
+          }
+,         {
+              "id"           : "sessionresumption_ticket",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "supported"
+          }
+,         {
+              "id"           : "sessionresumption_ID",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "not supported"
+          }
+,         {
+              "id"           : "TLS_timestamp",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "random"
+          }
+,         {
+              "id"           : "cert_numbers",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "1"
+          }
+,         {
+              "id"           : "cert_signatureAlgorithm",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "SHA256 with RSA"
+          }
+,         {
+              "id"           : "cert_keySize",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "RSA 2048 bits"
+          }
+,         {
+              "id"           : "cert_keyUsage",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "No server key usage information"
+          }
+,         {
+              "id"           : "cert_extKeyUsage",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "No server extended key usage information"
+          }
+,         {
+              "id"           : "cert_serialNumber",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "AE449A52BB2A5BB9"
+          }
+,         {
+              "id"           : "cert_fingerprintSHA1",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "1148E7C94E7019A577B46881520CA71922EB476E"
+          }
+,         {
+              "id"           : "cert_fingerprintSHA256",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "5D88C3B0687AF73BC1DC4DDA31D2669C9D503C3E209126ABE175EDBD86495917"
+          }
+,         {
+              "id"           : "cert",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "-----BEGIN CERTIFICATE----- MIIC9TCCAl6gAwIBAgIJAK5EmlK7Klu5MA0GCSqGSIb3DQEBCwUAMFsxGDAWBgNV BAoTD1N1cGVyZmlzaCwgSW5jLjELMAkGA1UEBxMCU0YxCzAJBgNVBAgTAkNBMQsw CQYDVQQGEwJVUzEYMBYGA1UEAxMPU3VwZXJmaXNoLCBJbmMuMB4XDTE4MDUxNjE3 MTUyM1oXDTIwMDUxNTE3MTUyM1owajELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNh bGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDzANBgNVBAoMBkJhZFNT TDEdMBsGA1UEAwwUc3VwZXJmaXNoLmJhZHNzbC5jb20wggEiMA0GCSqGSIb3DQEB AQUAA4IBDwAwggEKAoIBAQDCBOz4jO4EwrPYUNVwWMyTGOtcqGhJsCK1+ZWesSss dj5swEtgTEzqsrTAD4C2sPlyyYYC+VxBXRMrf3HES7zplC5QN6ZnHGGM9kFCxUbT Focnn3TrCp0RUiYhc2yETHlV5NFr6AY9SBVSrbMo26r/bv9glUp3aznxJNExtt1N wMT8U7ltQq21fP6u9RXSM0jnInHHwhR6bCjqN0rf6my1crR+WqIW3GmxV0TbChKr 3sMPR3RcQSLhmvkbk+atIgYpLrG6SRwMJ56j+4v3QHIArJII2YxXhFOBBcvm/mtU mEAnhccQu3Nw72kYQQdFVXz5ZD89LMOpfOuTGkyG0cqFAgMBAAGjLjAsMAkGA1Ud EwQCMAAwHwYDVR0RBBgwFoIUc3VwZXJmaXNoLmJhZHNzbC5jb20wDQYJKoZIhvcN AQELBQADgYEAKgHH4VD3jfwzxvtWTmIA1nwK+Fjqe9VFXyDwXiBnhqDwJp9J+/2y r7jbXfEKf7WBS6OmnU+HTjxUCFx2ZnA4r7dU5nIsNadKEDVHDOvYEJ6mXHPkrvlt k79iHC0DJiJX36BTXcU649wKEVjgX/kT2yy3YScPdBoN0vtzPN3yFsQ= -----END CERTIFICATE-----"
+          }
+,         {
+              "id"           : "cert_commonName",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "superfish.badssl.com"
+          }
+,         {
+              "id"           : "cert_commonName_wo_SNI",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "badssl-fallback-unknown-subdomain-or-no-sni"
+          }
+,         {
+              "id"           : "cert_subjectAltName",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "superfish.badssl.com"
+          }
+,         {
+              "id"           : "cert_caIssuers",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "Superfish, Inc. (Superfish, Inc. from US)"
+          }
+,         {
+              "id"           : "cert_trust",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "Ok via SAN and CN (SNI mandatory)"
+          }
+,         {
+              "id"           : "cert_chain_of_trust",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "CRITICAL",
+              "finding"      : "failed (chain incomplete)."
+          }
+,         {
+              "id"           : "cert_certificatePolicies_EV",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "no"
+          }
+,         {
+              "id"           : "cert_eTLS",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "not present"
+          }
+,         {
+              "id"           : "cert_expirationStatus",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "344 >= 60 days"
+          }
+,         {
+              "id"           : "cert_notBefore",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "2018-05-16 19:15"
+          }
+,         {
+              "id"           : "cert_notAfter",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "2020-05-15 19:15"
+          }
+,         {
+              "id"           : "cert_validityPeriod",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "420480 days"
+          }
+,         {
+              "id"           : "certs_countServer",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "1"
+          }
+,         {
+              "id"           : "certs_list_ordering_problem",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "no"
+          }
+,         {
+              "id"           : "cert_crlDistributionPoints",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "--"
+          }
+,         {
+              "id"           : "cert_ocspURL",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "--"
+          }
+,         {
+              "id"           : "cert_revocation",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "HIGH",
+              "finding"      : "Neither CRL nor OCSP URI provided"
+          }
+,         {
+              "id"           : "OCSP_stapling",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "cert_mustStapleExtension",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "--"
+          }
+,         {
+              "id"           : "DNS_CAArecord",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "LOW",
+              "finding"      : "--"
+          }
+,         {
+              "id"           : "certificate_transparency",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "--"
+          }
+,         {
+              "id"           : "heartbleed",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2014-0160",
+              "cwe"          : "CWE-119",
+              "finding"      : "not vulnerable , timed out"
+          }
+,         {
+              "id"           : "CCS",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2014-0224",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "ticketbleed",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2016-9244",
+              "cwe"          : "CWE-200",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "ROBOT",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2017-17382 CVE-2017-17427 CVE-2017-17428 CVE-2017-13098 CVE-2017-1000385 CVE-2017-13099 CVE-2016-6883 CVE-2012-5081 CVE-2017-6168",
+              "cwe"          : "CWE-203",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "secure_renego",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2009-3555",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "secure_client_renego",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2009-3555",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "CRIME_TLS",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2012-4929",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "BREACH",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "HIGH",
+              "cve"          : "CVE-2013-3587",
+              "cwe"          : "CWE-310",
+              "finding"      : "potentially VULNERABLE, uses gzip HTTP compression  - only supplied '/' tested"
+          }
+,         {
+              "id"           : "POODLE_SSL",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2014-3566",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "fallback_SCSV",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "supported"
+          }
+,         {
+              "id"           : "SWEET32",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "LOW",
+              "cve"          : "CVE-2016-2183 CVE-2016-6329",
+              "cwe"          : "CWE-327",
+              "finding"      : "uses 64 bit block ciphers"
+          }
+,         {
+              "id"           : "FREAK",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2015-0204",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "DROWN",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2016-0800 CVE-2016-0703",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable to DROWN on this host and port"
+          }
+,         {
+              "id"           : "DROWN",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "cve"          : "CVE-2016-0800 CVE-2016-0703",
+              "cwe"          : "CWE-310",
+              "finding"      : "Make sure you don't use this certificate elsewhere with SSLv2 enabled services, see https://censys.io/ipv4?q=5D88C3B0687AF73BC1DC4DDA31D2669C9D503C3E209126ABE175EDBD86495917"
+          }
+,         {
+              "id"           : "LOGJAM",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2015-4000",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable, no DH EXPORT ciphers,"
+          }
+,         {
+              "id"           : "LOGJAM-common_primes",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2015-4000",
+              "cwe"          : "CWE-310",
+              "finding"      : "--"
+          }
+,         {
+              "id"           : "BEAST_CBC_TLS1",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "MEDIUM",
+              "cve"          : "CVE-2011-3389",
+              "cwe"          : "CWE-20",
+              "finding"      : "ECDHE-RSA-AES128-SHA ECDHE-RSA-AES256-SHA DHE-RSA-AES128-SHA DHE-RSA-AES256-SHA ECDHE-RSA-DES-CBC3-SHA AES128-SHA AES256-SHA DES-CBC3-SHA DHE-RSA-CAMELLIA256-SHA CAMELLIA256-SHA DHE-RSA-CAMELLIA128-SHA CAMELLIA128-SHA"
+          }
+,         {
+              "id"           : "BEAST",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "LOW",
+              "cve"          : "CVE-2011-3389",
+              "cwe"          : "CWE-20",
+              "finding"      : "VULNERABLE -- but also supports higher protocols  TLSv1.1 TLSv1.2 (likely mitigated)"
+          }
+,         {
+              "id"           : "LUCKY13",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "LOW",
+              "cve"          : "CVE-2013-0169",
+              "cwe"          : "CWE-310",
+              "finding"      : "potentially vulnerable, uses TLS CBC ciphers"
+          }
+,         {
+              "id"           : "RC4",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2013-2566 CVE-2015-2808",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "cipher-tls1_xc014",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   xc014   ECDHE-RSA-AES256-SHA              ECDH 256   AES         256      TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_x39",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   x39     DHE-RSA-AES256-SHA                DH 2048    AES         256      TLS_DHE_RSA_WITH_AES_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_x88",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   x88     DHE-RSA-CAMELLIA256-SHA           DH 2048    Camellia    256      TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_x35",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   x35     AES256-SHA                        RSA        AES         256      TLS_RSA_WITH_AES_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_x84",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   x84     CAMELLIA256-SHA                   RSA        Camellia    256      TLS_RSA_WITH_CAMELLIA_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_xc013",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   xc013   ECDHE-RSA-AES128-SHA              ECDH 256   AES         128      TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_x33",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   x33     DHE-RSA-AES128-SHA                DH 2048    AES         128      TLS_DHE_RSA_WITH_AES_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_x45",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   x45     DHE-RSA-CAMELLIA128-SHA           DH 2048    Camellia    128      TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_x2f",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   x2f     AES128-SHA                        RSA        AES         128      TLS_RSA_WITH_AES_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_x41",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   x41     CAMELLIA128-SHA                   RSA        Camellia    128      TLS_RSA_WITH_CAMELLIA_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_xc012",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   xc012   ECDHE-RSA-DES-CBC3-SHA            ECDH 256   3DES        168      TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_x0a",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   x0a     DES-CBC3-SHA                      RSA        3DES        168      TLS_RSA_WITH_3DES_EDE_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_xc014",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   xc014   ECDHE-RSA-AES256-SHA              ECDH 256   AES         256      TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_x39",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   x39     DHE-RSA-AES256-SHA                DH 2048    AES         256      TLS_DHE_RSA_WITH_AES_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_x88",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   x88     DHE-RSA-CAMELLIA256-SHA           DH 2048    Camellia    256      TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_x35",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   x35     AES256-SHA                        RSA        AES         256      TLS_RSA_WITH_AES_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_x84",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   x84     CAMELLIA256-SHA                   RSA        Camellia    256      TLS_RSA_WITH_CAMELLIA_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_xc013",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   xc013   ECDHE-RSA-AES128-SHA              ECDH 256   AES         128      TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_x33",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   x33     DHE-RSA-AES128-SHA                DH 2048    AES         128      TLS_DHE_RSA_WITH_AES_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_x45",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   x45     DHE-RSA-CAMELLIA128-SHA           DH 2048    Camellia    128      TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_x2f",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   x2f     AES128-SHA                        RSA        AES         128      TLS_RSA_WITH_AES_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_x41",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   x41     CAMELLIA128-SHA                   RSA        Camellia    128      TLS_RSA_WITH_CAMELLIA_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_xc012",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   xc012   ECDHE-RSA-DES-CBC3-SHA            ECDH 256   3DES        168      TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_x0a",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   x0a     DES-CBC3-SHA                      RSA        3DES        168      TLS_RSA_WITH_3DES_EDE_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_xc030",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   xc030   ECDHE-RSA-AES256-GCM-SHA384       ECDH 256   AESGCM      256      TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
+          }
+,         {
+              "id"           : "cipher-tls1_2_xc028",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   xc028   ECDHE-RSA-AES256-SHA384           ECDH 256   AES         256      TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"
+          }
+,         {
+              "id"           : "cipher-tls1_2_xc014",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   xc014   ECDHE-RSA-AES256-SHA              ECDH 256   AES         256      TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x9f",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x9f     DHE-RSA-AES256-GCM-SHA384         DH 2048    AESGCM      256      TLS_DHE_RSA_WITH_AES_256_GCM_SHA384"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x6b",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x6b     DHE-RSA-AES256-SHA256             DH 2048    AES         256      TLS_DHE_RSA_WITH_AES_256_CBC_SHA256"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x39",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x39     DHE-RSA-AES256-SHA                DH 2048    AES         256      TLS_DHE_RSA_WITH_AES_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x88",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x88     DHE-RSA-CAMELLIA256-SHA           DH 2048    Camellia    256      TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x9d",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x9d     AES256-GCM-SHA384                 RSA        AESGCM      256      TLS_RSA_WITH_AES_256_GCM_SHA384"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x3d",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x3d     AES256-SHA256                     RSA        AES         256      TLS_RSA_WITH_AES_256_CBC_SHA256"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x35",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x35     AES256-SHA                        RSA        AES         256      TLS_RSA_WITH_AES_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x84",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x84     CAMELLIA256-SHA                   RSA        Camellia    256      TLS_RSA_WITH_CAMELLIA_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_xc02f",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   xc02f   ECDHE-RSA-AES128-GCM-SHA256       ECDH 256   AESGCM      128      TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+          }
+,         {
+              "id"           : "cipher-tls1_2_xc027",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   xc027   ECDHE-RSA-AES128-SHA256           ECDH 256   AES         128      TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
+          }
+,         {
+              "id"           : "cipher-tls1_2_xc013",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   xc013   ECDHE-RSA-AES128-SHA              ECDH 256   AES         128      TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x9e",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x9e     DHE-RSA-AES128-GCM-SHA256         DH 2048    AESGCM      128      TLS_DHE_RSA_WITH_AES_128_GCM_SHA256"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x67",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x67     DHE-RSA-AES128-SHA256             DH 2048    AES         128      TLS_DHE_RSA_WITH_AES_128_CBC_SHA256"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x33",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x33     DHE-RSA-AES128-SHA                DH 2048    AES         128      TLS_DHE_RSA_WITH_AES_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x45",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x45     DHE-RSA-CAMELLIA128-SHA           DH 2048    Camellia    128      TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x9c",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x9c     AES128-GCM-SHA256                 RSA        AESGCM      128      TLS_RSA_WITH_AES_128_GCM_SHA256"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x3c",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x3c     AES128-SHA256                     RSA        AES         128      TLS_RSA_WITH_AES_128_CBC_SHA256"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x2f",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x2f     AES128-SHA                        RSA        AES         128      TLS_RSA_WITH_AES_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x41",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x41     CAMELLIA128-SHA                   RSA        Camellia    128      TLS_RSA_WITH_CAMELLIA_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_xc012",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   xc012   ECDHE-RSA-DES-CBC3-SHA            ECDH 256   3DES        168      TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x0a",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x0a     DES-CBC3-SHA                      RSA        3DES        168      TLS_RSA_WITH_3DES_EDE_CBC_SHA"
+          }
+,         {
+              "id"           : "scanTime",
+              "ip"           : "superfish.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "179"
+          }
+]

@@ -1,0 +1,935 @@
+[
+         {
+              "id"           : "service",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "HTTP"
+          }
+,         {
+              "id"           : "pre_128cipher",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "No 128 cipher limit bug"
+          }
+,         {
+              "id"           : "SSLv2",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "SSLv3",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "TLS1",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "offered"
+          }
+,         {
+              "id"           : "TLS1_1",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "offered"
+          }
+,         {
+              "id"           : "TLS1_2",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "offered"
+          }
+,         {
+              "id"           : "TLS1_3",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "not offered and downgraded to a weaker protocol"
+          }
+,         {
+              "id"           : "NPN",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "offered with http/1.1 (advertised)"
+          }
+,         {
+              "id"           : "ALPN",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "http/1.1"
+          }
+,         {
+              "id"           : "cipherlist_NULL",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cwe"          : "CWE-327",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "cipherlist_aNULL",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cwe"          : "CWE-327",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "cipherlist_EXPORT",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cwe"          : "CWE-327",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "cipherlist_LOW",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cwe"          : "CWE-327",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "cipherlist_3DES_IDEA",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "HIGH",
+              "cwe"          : "CWE-310",
+              "finding"      : "offered"
+          }
+,         {
+              "id"           : "cipherlist_AVERAGE",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "LOW",
+              "cwe"          : "CWE-310",
+              "finding"      : "offered"
+          }
+,         {
+              "id"           : "cipherlist_STRONG",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "offered"
+          }
+,         {
+              "id"           : "cipher_order",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "server"
+          }
+,         {
+              "id"           : "protocol_negotiated",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "Default protocol TLS1.2"
+          }
+,         {
+              "id"           : "cipher_negotiated",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "ECDHE-RSA-AES128-GCM-SHA256, 256 bit ECDH (P-256)"
+          }
+,         {
+              "id"           : "cipherorder_TLSv1",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "ECDHE-RSA-AES128-SHA ECDHE-RSA-AES256-SHA DHE-RSA-AES128-SHA DHE-RSA-AES256-SHA ECDHE-RSA-DES-CBC3-SHA AES128-SHA AES256-SHA DES-CBC3-SHA DHE-RSA-CAMELLIA256-SHA CAMELLIA256-SHA DHE-RSA-CAMELLIA128-SHA CAMELLIA128-SHA"
+          }
+,         {
+              "id"           : "cipherorder_TLSv1_1",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "ECDHE-RSA-AES128-SHA ECDHE-RSA-AES256-SHA DHE-RSA-AES128-SHA DHE-RSA-AES256-SHA ECDHE-RSA-DES-CBC3-SHA AES128-SHA AES256-SHA DES-CBC3-SHA DHE-RSA-CAMELLIA256-SHA CAMELLIA256-SHA DHE-RSA-CAMELLIA128-SHA CAMELLIA128-SHA"
+          }
+,         {
+              "id"           : "cipherorder_TLSv1_2",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "ECDHE-RSA-AES128-GCM-SHA256 ECDHE-RSA-AES256-GCM-SHA384 DHE-RSA-AES128-GCM-SHA256 DHE-RSA-AES256-GCM-SHA384 ECDHE-RSA-AES128-SHA256 ECDHE-RSA-AES128-SHA ECDHE-RSA-AES256-SHA384 ECDHE-RSA-AES256-SHA DHE-RSA-AES128-SHA256 DHE-RSA-AES128-SHA DHE-RSA-AES256-SHA256 DHE-RSA-AES256-SHA ECDHE-RSA-DES-CBC3-SHA AES128-GCM-SHA256 AES256-GCM-SHA384 AES128-SHA256 AES256-SHA256 AES128-SHA AES256-SHA DES-CBC3-SHA DHE-RSA-CAMELLIA256-SHA CAMELLIA256-SHA DHE-RSA-CAMELLIA128-SHA CAMELLIA128-SHA"
+          }
+,         {
+              "id"           : "TLS_extensions",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "'server name/#0' 'renegotiation info/#65281' 'EC point formats/#11' 'session ticket/#35' 'heartbeat/#15' 'next protocol/#13172' 'application layer protocol negotiation/#16'"
+          }
+,         {
+              "id"           : "TLS_session_ticket",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "valid for 300 seconds only (<daily)"
+          }
+,         {
+              "id"           : "SSL_sessionID_support",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "yes"
+          }
+,         {
+              "id"           : "sessionresumption_ticket",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "supported"
+          }
+,         {
+              "id"           : "sessionresumption_ID",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "not supported"
+          }
+,         {
+              "id"           : "TLS_timestamp",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "random"
+          }
+,         {
+              "id"           : "cert_numbers",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "1"
+          }
+,         {
+              "id"           : "cert_signatureAlgorithm",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "SHA256 with RSA"
+          }
+,         {
+              "id"           : "cert_keySize",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "RSA 2048 bits"
+          }
+,         {
+              "id"           : "cert_keyUsage",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "Digital Signature, Key Encipherment"
+          }
+,         {
+              "id"           : "cert_extKeyUsage",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "cert_ext_keyusage"
+          }
+,         {
+              "id"           : "cert_serialNumber",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "BE004269D7587957103C04E7AA4ED8B2"
+          }
+,         {
+              "id"           : "cert_fingerprintSHA1",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "C3E98690F293AB8947C5C68A8140755A3AFDE4C9"
+          }
+,         {
+              "id"           : "cert_fingerprintSHA256",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "500A77E0EB1FF3492EE6A407499699F36E44D15E72F67A4035074172B0D71771"
+          }
+,         {
+              "id"           : "cert",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "-----BEGIN CERTIFICATE----- MIIE8TCCA9mgAwIBAgIRAL4AQmnXWHlXEDwE56pO2LIwDQYJKoZIhvcNAQELBQAw cDELMAkGA1UEBhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4G A1UEBxMHU2FsZm9yZDEaMBgGA1UEChMRQ09NT0RPIENBIExpbWl0ZWQxFjAUBgNV BAMTDUNPTU9ETyBTU0wgQ0EwHhcNMTcwNDEzMDAwMDAwWhcNMjAwNTMwMjM1OTU5 WjBYMSEwHwYDVQQLExhEb21haW4gQ29udHJvbCBWYWxpZGF0ZWQxHDAaBgNVBAsT E0NPTU9ETyBTU0wgV2lsZGNhcmQxFTATBgNVBAMMDCouYmFkc3NsLmNvbTCCASIw DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMIE7PiM7gTCs9hQ1XBYzJMY61yo aEmwIrX5lZ6xKyx2PmzAS2BMTOqytMAPgLaw+XLJhgL5XEFdEyt/ccRLvOmULlA3 pmccYYz2QULFRtMWhyefdOsKnRFSJiFzbIRMeVXk0WvoBj1IFVKtsyjbqv9u/2CV SndrOfEk0TG23U3AxPxTuW1CrbV8/q71FdIzSOciccfCFHpsKOo3St/qbLVytH5a ohbcabFXRNsKEqveww9HdFxBIuGa+RuT5q0iBikusbpJHAwnnqP7i/dAcgCskgjZ jFeEU4EFy+b+a1SYQCeFxxC7c3DvaRhBB0VVfPlkPz0sw6l865MaTIbRyoUCAwEA AaOCAZwwggGYMB8GA1UdIwQYMBaAFBtrvR+KSRiUVDdVtCAX7Te5dxh9MB0GA1Ud DgQWBBSd7sF7gQs6R2lxGH0RN5O8pRs/+zAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0T AQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwTwYDVR0gBEgw RjA6BgsrBgEEAbIxAQICBzArMCkGCCsGAQUFBwIBFh1odHRwczovL3NlY3VyZS5j b21vZG8uY29tL0NQUzAIBgZngQwBAgEwOAYDVR0fBDEwLzAtoCugKYYnaHR0cDov L2NybC5jb21vZG9jYS5jb20vQ09NT0RPU1NMQ0EuY3JsMGkGCCsGAQUFBwEBBF0w WzAzBggrBgEFBQcwAoYnaHR0cDovL2NydC5jb21vZG9jYS5jb20vQ09NT0RPU1NM Q0EuY3J0MCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5jb21vZG9jYS5jb20wIwYD VR0RBBwwGoIMKi5iYWRzc2wuY29tggpiYWRzc2wuY29tMA0GCSqGSIb3DQEBCwUA A4IBAQCjAoXzYKLon9rpcYVKD1Y3zvIZyojAiUgibAi/v3trIBDA92bOCxBNgCyw yU3yFR8eSriE1lROeZghScU/qMKqJQhNv8jSRKiCaVjX/6XGJeGjJ4vDZgkoFOAt 3BUpzUSqCNZPuHim6YSIWRgcoCgvqzvh9wVh/eRTMGt2naTfy2ieUkYSKleGbE91 DeCKiiAJlimR0MJ5xOznTvCMxvs0ZppG41F+ain6rmsKQaVZfw4IxJW+9KmtNO4g EJO5rT+lOyz3t3Ij2yblHAwtcdxxwyA9BdvnIxfDcXVtNcqPNfBZRkhct/APO/yS Ix4MYaiI3P48eZeMnLgiw/MOh2Vi -----END CERTIFICATE-----"
+          }
+,         {
+              "id"           : "cert_commonName",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "*.badssl.com"
+          }
+,         {
+              "id"           : "cert_commonName_wo_SNI",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "badssl-fallback-unknown-subdomain-or-no-sni"
+          }
+,         {
+              "id"           : "cert_subjectAltName",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "*.badssl.com badssl.com"
+          }
+,         {
+              "id"           : "cert_caIssuers",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "COMODO SSL CA (COMODO CA Limited from GB)"
+          }
+,         {
+              "id"           : "cert_trust",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "Ok via SAN wildcard and CN wildcard (SNI mandatory)"
+          }
+,         {
+              "id"           : "cert_chain_of_trust",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "CRITICAL",
+              "finding"      : "Some certificate trust checks failed -> Apple (chain incomplete)  , OK -> Mozilla Microsoft Linux Java"
+          }
+,         {
+              "id"           : "cert_certificatePolicies_EV",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "no"
+          }
+,         {
+              "id"           : "cert_eTLS",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "not present"
+          }
+,         {
+              "id"           : "cert_expirationStatus",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "359 >= 60 days"
+          }
+,         {
+              "id"           : "cert_notBefore",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "2017-04-13 02:00"
+          }
+,         {
+              "id"           : "cert_notAfter",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "2020-05-31 01:59"
+          }
+,         {
+              "id"           : "cert_validityPeriod",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "658920 days"
+          }
+,         {
+              "id"           : "certs_countServer",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "2"
+          }
+,         {
+              "id"           : "certs_list_ordering_problem",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "no"
+          }
+,         {
+              "id"           : "cert_crlDistributionPoints",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "http://crl.comodoca.com/COMODOSSLCA.crl"
+          }
+,         {
+              "id"           : "cert_ocspURL",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "http://ocsp.comodoca.com"
+          }
+,         {
+              "id"           : "OCSP_stapling",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "LOW",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "cert_mustStapleExtension",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "--"
+          }
+,         {
+              "id"           : "DNS_CAArecord",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "LOW",
+              "finding"      : "--"
+          }
+,         {
+              "id"           : "certificate_transparency",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "--"
+          }
+,         {
+              "id"           : "heartbleed",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2014-0160",
+              "cwe"          : "CWE-119",
+              "finding"      : "not vulnerable , timed out"
+          }
+,         {
+              "id"           : "CCS",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2014-0224",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "ticketbleed",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2016-9244",
+              "cwe"          : "CWE-200",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "ROBOT",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2017-17382 CVE-2017-17427 CVE-2017-17428 CVE-2017-13098 CVE-2017-1000385 CVE-2017-13099 CVE-2016-6883 CVE-2012-5081 CVE-2017-6168",
+              "cwe"          : "CWE-203",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "secure_renego",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2009-3555",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "secure_client_renego",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2009-3555",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "CRIME_TLS",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2012-4929",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "BREACH",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "HIGH",
+              "cve"          : "CVE-2013-3587",
+              "cwe"          : "CWE-310",
+              "finding"      : "potentially VULNERABLE, uses gzip HTTP compression  - only supplied '/' tested"
+          }
+,         {
+              "id"           : "POODLE_SSL",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2014-3566",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "fallback_SCSV",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "supported"
+          }
+,         {
+              "id"           : "SWEET32",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "LOW",
+              "cve"          : "CVE-2016-2183 CVE-2016-6329",
+              "cwe"          : "CWE-327",
+              "finding"      : "uses 64 bit block ciphers"
+          }
+,         {
+              "id"           : "FREAK",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2015-0204",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "DROWN",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2016-0800 CVE-2016-0703",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable to DROWN on this host and port"
+          }
+,         {
+              "id"           : "DROWN",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "cve"          : "CVE-2016-0800 CVE-2016-0703",
+              "cwe"          : "CWE-310",
+              "finding"      : "Make sure you don't use this certificate elsewhere with SSLv2 enabled services, see https://censys.io/ipv4?q=500A77E0EB1FF3492EE6A407499699F36E44D15E72F67A4035074172B0D71771"
+          }
+,         {
+              "id"           : "LOGJAM",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2015-4000",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable, no DH EXPORT ciphers,"
+          }
+,         {
+              "id"           : "LOGJAM-common_primes",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2015-4000",
+              "cwe"          : "CWE-310",
+              "finding"      : "--"
+          }
+,         {
+              "id"           : "BEAST_CBC_TLS1",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "MEDIUM",
+              "cve"          : "CVE-2011-3389",
+              "cwe"          : "CWE-20",
+              "finding"      : "ECDHE-RSA-AES128-SHA ECDHE-RSA-AES256-SHA DHE-RSA-AES128-SHA DHE-RSA-AES256-SHA ECDHE-RSA-DES-CBC3-SHA AES128-SHA AES256-SHA DES-CBC3-SHA DHE-RSA-CAMELLIA256-SHA CAMELLIA256-SHA DHE-RSA-CAMELLIA128-SHA CAMELLIA128-SHA"
+          }
+,         {
+              "id"           : "BEAST",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "LOW",
+              "cve"          : "CVE-2011-3389",
+              "cwe"          : "CWE-20",
+              "finding"      : "VULNERABLE -- but also supports higher protocols  TLSv1.1 TLSv1.2 (likely mitigated)"
+          }
+,         {
+              "id"           : "LUCKY13",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "LOW",
+              "cve"          : "CVE-2013-0169",
+              "cwe"          : "CWE-310",
+              "finding"      : "potentially vulnerable, uses TLS CBC ciphers"
+          }
+,         {
+              "id"           : "RC4",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2013-2566 CVE-2015-2808",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "cipher-tls1_xc014",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   xc014   ECDHE-RSA-AES256-SHA              ECDH 256   AES         256      TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_x39",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   x39     DHE-RSA-AES256-SHA                DH 2048    AES         256      TLS_DHE_RSA_WITH_AES_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_x88",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   x88     DHE-RSA-CAMELLIA256-SHA           DH 2048    Camellia    256      TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_x35",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   x35     AES256-SHA                        RSA        AES         256      TLS_RSA_WITH_AES_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_x84",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   x84     CAMELLIA256-SHA                   RSA        Camellia    256      TLS_RSA_WITH_CAMELLIA_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_xc013",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   xc013   ECDHE-RSA-AES128-SHA              ECDH 256   AES         128      TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_x33",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   x33     DHE-RSA-AES128-SHA                DH 2048    AES         128      TLS_DHE_RSA_WITH_AES_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_x45",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   x45     DHE-RSA-CAMELLIA128-SHA           DH 2048    Camellia    128      TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_x2f",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   x2f     AES128-SHA                        RSA        AES         128      TLS_RSA_WITH_AES_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_x41",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   x41     CAMELLIA128-SHA                   RSA        Camellia    128      TLS_RSA_WITH_CAMELLIA_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_xc012",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   xc012   ECDHE-RSA-DES-CBC3-SHA            ECDH 256   3DES        168      TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_x0a",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   x0a     DES-CBC3-SHA                      RSA        3DES        168      TLS_RSA_WITH_3DES_EDE_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_xc014",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   xc014   ECDHE-RSA-AES256-SHA              ECDH 256   AES         256      TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_x39",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   x39     DHE-RSA-AES256-SHA                DH 2048    AES         256      TLS_DHE_RSA_WITH_AES_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_x88",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   x88     DHE-RSA-CAMELLIA256-SHA           DH 2048    Camellia    256      TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_x35",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   x35     AES256-SHA                        RSA        AES         256      TLS_RSA_WITH_AES_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_x84",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   x84     CAMELLIA256-SHA                   RSA        Camellia    256      TLS_RSA_WITH_CAMELLIA_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_xc013",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   xc013   ECDHE-RSA-AES128-SHA              ECDH 256   AES         128      TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_x33",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   x33     DHE-RSA-AES128-SHA                DH 2048    AES         128      TLS_DHE_RSA_WITH_AES_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_x45",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   x45     DHE-RSA-CAMELLIA128-SHA           DH 2048    Camellia    128      TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_x2f",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   x2f     AES128-SHA                        RSA        AES         128      TLS_RSA_WITH_AES_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_x41",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   x41     CAMELLIA128-SHA                   RSA        Camellia    128      TLS_RSA_WITH_CAMELLIA_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_xc012",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   xc012   ECDHE-RSA-DES-CBC3-SHA            ECDH 256   3DES        168      TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_x0a",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   x0a     DES-CBC3-SHA                      RSA        3DES        168      TLS_RSA_WITH_3DES_EDE_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_xc030",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   xc030   ECDHE-RSA-AES256-GCM-SHA384       ECDH 256   AESGCM      256      TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
+          }
+,         {
+              "id"           : "cipher-tls1_2_xc028",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   xc028   ECDHE-RSA-AES256-SHA384           ECDH 256   AES         256      TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"
+          }
+,         {
+              "id"           : "cipher-tls1_2_xc014",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   xc014   ECDHE-RSA-AES256-SHA              ECDH 256   AES         256      TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x9f",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x9f     DHE-RSA-AES256-GCM-SHA384         DH 2048    AESGCM      256      TLS_DHE_RSA_WITH_AES_256_GCM_SHA384"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x6b",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x6b     DHE-RSA-AES256-SHA256             DH 2048    AES         256      TLS_DHE_RSA_WITH_AES_256_CBC_SHA256"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x39",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x39     DHE-RSA-AES256-SHA                DH 2048    AES         256      TLS_DHE_RSA_WITH_AES_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x88",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x88     DHE-RSA-CAMELLIA256-SHA           DH 2048    Camellia    256      TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x9d",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x9d     AES256-GCM-SHA384                 RSA        AESGCM      256      TLS_RSA_WITH_AES_256_GCM_SHA384"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x3d",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x3d     AES256-SHA256                     RSA        AES         256      TLS_RSA_WITH_AES_256_CBC_SHA256"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x35",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x35     AES256-SHA                        RSA        AES         256      TLS_RSA_WITH_AES_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x84",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x84     CAMELLIA256-SHA                   RSA        Camellia    256      TLS_RSA_WITH_CAMELLIA_256_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_xc02f",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   xc02f   ECDHE-RSA-AES128-GCM-SHA256       ECDH 256   AESGCM      128      TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+          }
+,         {
+              "id"           : "cipher-tls1_2_xc027",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   xc027   ECDHE-RSA-AES128-SHA256           ECDH 256   AES         128      TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
+          }
+,         {
+              "id"           : "cipher-tls1_2_xc013",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   xc013   ECDHE-RSA-AES128-SHA              ECDH 256   AES         128      TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x9e",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x9e     DHE-RSA-AES128-GCM-SHA256         DH 2048    AESGCM      128      TLS_DHE_RSA_WITH_AES_128_GCM_SHA256"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x67",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x67     DHE-RSA-AES128-SHA256             DH 2048    AES         128      TLS_DHE_RSA_WITH_AES_128_CBC_SHA256"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x33",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x33     DHE-RSA-AES128-SHA                DH 2048    AES         128      TLS_DHE_RSA_WITH_AES_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x45",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x45     DHE-RSA-CAMELLIA128-SHA           DH 2048    Camellia    128      TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x9c",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x9c     AES128-GCM-SHA256                 RSA        AESGCM      128      TLS_RSA_WITH_AES_128_GCM_SHA256"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x3c",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x3c     AES128-SHA256                     RSA        AES         128      TLS_RSA_WITH_AES_128_CBC_SHA256"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x2f",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x2f     AES128-SHA                        RSA        AES         128      TLS_RSA_WITH_AES_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x41",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x41     CAMELLIA128-SHA                   RSA        Camellia    128      TLS_RSA_WITH_CAMELLIA_128_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_xc012",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   xc012   ECDHE-RSA-DES-CBC3-SHA            ECDH 256   3DES        168      TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x0a",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x0a     DES-CBC3-SHA                      RSA        3DES        168      TLS_RSA_WITH_3DES_EDE_CBC_SHA"
+          }
+,         {
+              "id"           : "scanTime",
+              "ip"           : "sha1-intermediate.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "190"
+          }
+]

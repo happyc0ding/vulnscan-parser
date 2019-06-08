@@ -1,0 +1,616 @@
+[
+         {
+              "id"           : "service",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "HTTP"
+          }
+,         {
+              "id"           : "SSLv2",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "SSLv3",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "TLS1",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "offered"
+          }
+,         {
+              "id"           : "TLS1_1",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "offered"
+          }
+,         {
+              "id"           : "TLS1_2",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "offered"
+          }
+,         {
+              "id"           : "TLS1_3",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "not offered and downgraded to a weaker protocol"
+          }
+,         {
+              "id"           : "NPN",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "offered with http/1.1 (advertised)"
+          }
+,         {
+              "id"           : "ALPN",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "http/1.1"
+          }
+,         {
+              "id"           : "cipherlist_NULL",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cwe"          : "CWE-327",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "cipherlist_aNULL",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cwe"          : "CWE-327",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "cipherlist_EXPORT",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cwe"          : "CWE-327",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "cipherlist_LOW",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "CRITICAL",
+              "cwe"          : "CWE-327",
+              "finding"      : "offered"
+          }
+,         {
+              "id"           : "cipherlist_3DES_IDEA",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cwe"          : "CWE-310",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "cipherlist_AVERAGE",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "cwe"          : "CWE-310",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "cipherlist_STRONG",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "MEDIUM",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "cipher_order",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "server"
+          }
+,         {
+              "id"           : "protocol_negotiated",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "Default protocol TLS1.2"
+          }
+,         {
+              "id"           : "cipher_negotiated",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "HIGH",
+              "finding"      : "ECDHE-RSA-RC4-SHA, 256 bit ECDH (P-256)"
+          }
+,         {
+              "id"           : "cipherorder_TLSv1",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "ECDHE-RSA-RC4-SHA RC4-SHA"
+          }
+,         {
+              "id"           : "cipherorder_TLSv1_1",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "ECDHE-RSA-RC4-SHA RC4-SHA"
+          }
+,         {
+              "id"           : "cipherorder_TLSv1_2",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "ECDHE-RSA-RC4-SHA RC4-SHA"
+          }
+,         {
+              "id"           : "TLS_extensions",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "'server name/#0' 'renegotiation info/#65281' 'EC point formats/#11' 'session ticket/#35' 'heartbeat/#15' 'next protocol/#13172' 'application layer protocol negotiation/#16'"
+          }
+,         {
+              "id"           : "TLS_session_ticket",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "valid for 300 seconds only (<daily)"
+          }
+,         {
+              "id"           : "SSL_sessionID_support",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "yes"
+          }
+,         {
+              "id"           : "sessionresumption_ticket",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "supported"
+          }
+,         {
+              "id"           : "sessionresumption_ID",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "not supported"
+          }
+,         {
+              "id"           : "TLS_timestamp",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "random"
+          }
+,         {
+              "id"           : "cert_numbers",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "1"
+          }
+,         {
+              "id"           : "cert_signatureAlgorithm",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "SHA256 with RSA"
+          }
+,         {
+              "id"           : "cert_keySize",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "RSA 2048 bits"
+          }
+,         {
+              "id"           : "cert_keyUsage",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "Digital Signature, Key Encipherment"
+          }
+,         {
+              "id"           : "cert_extKeyUsage",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "cert_ext_keyusage"
+          }
+,         {
+              "id"           : "cert_serialNumber",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "01F202031DFDA98EFDFF0F72BE51060D"
+          }
+,         {
+              "id"           : "cert_fingerprintSHA1",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "CA5308746C1E0644D63AF61BF581C72AF90C7095"
+          }
+,         {
+              "id"           : "cert_fingerprintSHA256",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "D900D1834D077A49E7D729A8D065D7DAC4BF671390CAD1DED8872303554E04B2"
+          }
+,         {
+              "id"           : "cert",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "-----BEGIN CERTIFICATE----- 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 -----END CERTIFICATE-----"
+          }
+,         {
+              "id"           : "cert_commonName",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "*.badssl.com"
+          }
+,         {
+              "id"           : "cert_commonName_wo_SNI",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "badssl-fallback-unknown-subdomain-or-no-sni"
+          }
+,         {
+              "id"           : "cert_subjectAltName",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "*.badssl.com badssl.com"
+          }
+,         {
+              "id"           : "cert_caIssuers",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "DigiCert SHA2 Secure Server CA (DigiCert Inc from US)"
+          }
+,         {
+              "id"           : "cert_trust",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "Ok via SAN wildcard and CN wildcard (SNI mandatory)"
+          }
+,         {
+              "id"           : "cert_chain_of_trust",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "passed."
+          }
+,         {
+              "id"           : "cert_certificatePolicies_EV",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "no"
+          }
+,         {
+              "id"           : "cert_eTLS",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "not present"
+          }
+,         {
+              "id"           : "cert_expirationStatus",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "292 >= 60 days"
+          }
+,         {
+              "id"           : "cert_notBefore",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "2017-03-18 01:00"
+          }
+,         {
+              "id"           : "cert_notAfter",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "2020-03-25 13:00"
+          }
+,         {
+              "id"           : "cert_validityPeriod",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "635616 days"
+          }
+,         {
+              "id"           : "certs_countServer",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "2"
+          }
+,         {
+              "id"           : "certs_list_ordering_problem",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "no"
+          }
+,         {
+              "id"           : "cert_crlDistributionPoints",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "http://crl3.digicert.com/ssca-sha2-g5.crl http://crl4.digicert.com/ssca-sha2-g5.crl"
+          }
+,         {
+              "id"           : "cert_ocspURL",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "http://ocsp.digicert.com"
+          }
+,         {
+              "id"           : "OCSP_stapling",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "LOW",
+              "finding"      : "not offered"
+          }
+,         {
+              "id"           : "cert_mustStapleExtension",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "--"
+          }
+,         {
+              "id"           : "DNS_CAArecord",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "LOW",
+              "finding"      : "--"
+          }
+,         {
+              "id"           : "certificate_transparency",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "yes (certificate extension)"
+          }
+,         {
+              "id"           : "heartbleed",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2014-0160",
+              "cwe"          : "CWE-119",
+              "finding"      : "not vulnerable , timed out"
+          }
+,         {
+              "id"           : "CCS",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2014-0224",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "ticketbleed",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2016-9244",
+              "cwe"          : "CWE-200",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "ROBOT",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2017-17382 CVE-2017-17427 CVE-2017-17428 CVE-2017-13098 CVE-2017-1000385 CVE-2017-13099 CVE-2016-6883 CVE-2012-5081 CVE-2017-6168",
+              "cwe"          : "CWE-203",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "secure_renego",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2009-3555",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "secure_client_renego",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2009-3555",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "CRIME_TLS",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2012-4929",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "BREACH",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "HIGH",
+              "cve"          : "CVE-2013-3587",
+              "cwe"          : "CWE-310",
+              "finding"      : "potentially VULNERABLE, uses gzip HTTP compression  - only supplied '/' tested"
+          }
+,         {
+              "id"           : "POODLE_SSL",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2014-3566",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "fallback_SCSV",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "supported"
+          }
+,         {
+              "id"           : "SWEET32",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2016-2183 CVE-2016-6329",
+              "cwe"          : "CWE-327",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "FREAK",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2015-0204",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "DROWN",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2016-0800 CVE-2016-0703",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable to DROWN on this host and port"
+          }
+,         {
+              "id"           : "DROWN",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "cve"          : "CVE-2016-0800 CVE-2016-0703",
+              "cwe"          : "CWE-310",
+              "finding"      : "Make sure you don't use this certificate elsewhere with SSLv2 enabled services, see https://censys.io/ipv4?q=D900D1834D077A49E7D729A8D065D7DAC4BF671390CAD1DED8872303554E04B2"
+          }
+,         {
+              "id"           : "LOGJAM",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2015-4000",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable, no DH EXPORT ciphers,"
+          }
+,         {
+              "id"           : "LOGJAM-common_primes",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2015-4000",
+              "cwe"          : "CWE-310",
+              "finding"      : "no DH key with <= TLS 1.2"
+          }
+,         {
+              "id"           : "LUCKY13",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2013-0169",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "RC4",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "HIGH",
+              "cve"          : "CVE-2013-2566 CVE-2015-2808",
+              "cwe"          : "CWE-310",
+              "finding"      : "VULNERABLE, Detected ciphers: ECDHE-RSA-RC4-SHA RC4-SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_xc011",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   xc011   ECDHE-RSA-RC4-SHA                 ECDH 256   RC4         128      TLS_ECDHE_RSA_WITH_RC4_128_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_x05",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1   x05     RC4-SHA                           RSA        RC4         128      TLS_RSA_WITH_RC4_128_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_xc011",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   xc011   ECDHE-RSA-RC4-SHA                 ECDH 256   RC4         128      TLS_ECDHE_RSA_WITH_RC4_128_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_1_x05",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.1   x05     RC4-SHA                           RSA        RC4         128      TLS_RSA_WITH_RC4_128_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_xc011",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   xc011   ECDHE-RSA-RC4-SHA                 ECDH 256   RC4         128      TLS_ECDHE_RSA_WITH_RC4_128_SHA"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x05",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLS 1.2   x05     RC4-SHA                           RSA        RC4         128      TLS_RSA_WITH_RC4_128_SHA"
+          }
+,         {
+              "id"           : "scanTime",
+              "ip"           : "rc4.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "157"
+          }
+]

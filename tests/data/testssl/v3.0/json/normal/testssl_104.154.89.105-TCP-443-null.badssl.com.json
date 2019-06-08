@@ -1,0 +1,9 @@
+[
+         {
+              "id"           : "scanTime",
+              "ip"           : "null.badssl.com/104.154.89.105",
+              "port"         : "443",
+              "severity"     : "WARN",
+              "finding"      : "Scan interrupted"
+          }
+]

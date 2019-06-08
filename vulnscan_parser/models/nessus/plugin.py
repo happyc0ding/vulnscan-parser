@@ -8,5 +8,6 @@ class NessusPlugin(VSBaseModel):
         self.ignored_dict_props.append('script_copyright')
         self.pluginID = 0
         self.pluginName = ''
+        self.description = ''
         self.findings = set()
         self.hosts = set()

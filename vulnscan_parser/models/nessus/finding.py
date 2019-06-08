@@ -7,11 +7,22 @@ class NessusFinding(VSFinding):
         super().__init__()
         self.plugin = None
         self.svc_name = ''
-        self.description = ''
-        self.solution = ''
+        # self.solution = ''
         self.plugin_output = ''
         self.risk_factor = ''
         self.severity = 0
+        self._description = ''
+
+    @property
+    def description(self):
+        if self._description:
+            return self._description
+        return self.plugin.description
+
+    @description.setter
+    def description(self, desc):
+        if desc != self.plugin.description:
+            self._description = desc
 
     def to_serializable_dict(self):
         result = self.plugin.to_serializable_dict()

@@ -6,9 +6,8 @@ try:
 except ImportError:
     from xml.etree import ElementTree as elmtree
 import os
-from datetime import datetime, timezone
+from datetime import datetime
 import ipaddress
-from itertools import islice
 
 from pyparsing import CharsNotIn, LineEnd, Word, ZeroOrMore, delimitedList, alphanums
 
@@ -67,6 +66,7 @@ class NessusParserXML(VSBaseParser):
     FINDING_PLUGIN_PROPERTIES = {
         'risk_factor',
         'severity',
+        'description',
     }
 
     # the following properties exist more than once in the xml and have to be mapped to a set or similar
@@ -199,9 +199,6 @@ class NessusParserXML(VSBaseParser):
                     elif 'ReportItem' == element.tag:
                         plugin = self.handle_plugin(element, host)
                         self.handle_finding(element, host, plugin)
-                    elif 'ReportHost' == element.tag:
-                        self._parse_add_hostnames(host)
-                        self._parse_add_services(host)
                     # # iterative parsing: yield after every host
                     # elif parse_hosts_iterative and 'ReportHost' == element.tag:
                     #     plugin_dict = {plugin.pluginID: plugin for plugin in host.plugins}
@@ -331,9 +328,9 @@ class NessusParserXML(VSBaseParser):
                     setattr(host, host_prop_name, host_prop_value)
                 except ValueError:
                     pass
-            # set attribute
-            setattr(host, host_prop_name, host_prop_value)
-
+            else:
+                # set attribute
+                setattr(host, host_prop_name, host_prop_value)
         # host id is the ip address
         host.id = host.ip
         try:
@@ -357,10 +354,10 @@ class NessusParserXML(VSBaseParser):
         # add src file
         host.src_file.add(self._curr_filename)
         # add hostnames
-        #self._parse_add_hostnames(host)
+        self._parse_add_hostnames(host)
         # add services
         # TODO: only simple service detection for now
-        #self._parse_add_services(host)
+        self._parse_add_services(host)
 
         #LOGGER.debug('handled host {} with {}'.format(host.ip, host))
 
@@ -625,7 +622,6 @@ class NessusParserXML(VSBaseParser):
 
     def _parse_add_services(self, host):
         service_software = {}
-
         for finding in host.findings:
             if finding.port < 1:
                 continue
@@ -657,13 +653,11 @@ class NessusParserXML(VSBaseParser):
                             sw_name = line
                 else:
                     for line in lines:
-                        for prefix in ('Installed version', 'Reported version'):
-                            if line.lstrip(' ').startswith(prefix):
-                                sw_version = self._get_output_value_by_sep(line, ':')
-                                break
+                        for prefix in ('Installed version :', 'Reported version :'):
+                            sw_version = self._get_output_value_by_prefix(line, prefix)
+                            break
 
-                        if 'Product' in line:
-                            sw_name = self._get_output_value_by_sep(line, ':')
+                        sw_name = self._get_output_value_by_prefix(line, 'Product                :')
 
             # TODO: normalize name
 
@@ -696,9 +690,3 @@ class NessusParserXML(VSBaseParser):
         if prefix not in line:
             return ''
         return line[:line.find(prefix)].strip(' ')
-
-    @staticmethod
-    def _get_output_value_by_sep(line, sep):
-        if sep not in line:
-            return ''
-        return line.split(sep)[1].strip(' ')

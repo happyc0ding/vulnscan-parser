@@ -20,28 +20,30 @@ class TestsslParseNormalFile1TestCase(unittest.TestCase):
     HOST_NUM = 1
     HOST_PROPS = ('id', 'ip', 'hostnames', 'findings', 'services', 'src_file')
 
-    FINDING_NUM = 88
+    FINDING_NUM = 80
     FINDING_PROPS = ('id', 'host', 'vulnerability', 'hostname', 'src_file', 'port', 'protocol',
                      'finding', 'severity')
 
-    VULN_NUM = 87
+    VULN_NUM = 79
     VULN_PROPS = ('id', 'name', 'findings', 'cve', 'cwe')
 
     config_parser = None
     parser = None
+    root_path = ''
     file1 = ''
 
     @classmethod
     def setUpClass(cls):
+        cls.root_path = os.path.join(os.path.join(os.path.dirname(__file__)))
         cls.config_parser = ConfigParser()
-        cls.config_parser.read(os.path.join(os.path.dirname(__file__), 'config'))
+        cls.config_parser.read(os.path.join(cls.root_path, 'config'))
         cls.parser = TestsslParserJson()
         cls._get_conf()
         cls._parse()
 
     @classmethod
     def _get_conf(cls):
-        cls.file1 = os.path.expanduser(cls.config_parser.get('testssl', 'file1'))
+        cls.file1 = os.path.join(cls.root_path, cls.config_parser.get('testssl', 'dir_normal'), cls.config_parser.get('testssl', 'file1'))
 
     @classmethod
     def _parse(cls):

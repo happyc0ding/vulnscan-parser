@@ -33,15 +33,16 @@ class TestsslParsePrettyFile1TestCase(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
+        cls.root_path = os.path.join(os.path.join(os.path.dirname(__file__)))
         cls.config_parser = ConfigParser()
-        cls.config_parser.read(os.path.join(os.path.dirname(__file__), 'config'))
+        cls.config_parser.read(os.path.join(cls.root_path, 'config'))
         cls.parser = TestsslParserJson()
         cls._get_conf()
         cls._parse()
 
     @classmethod
     def _get_conf(cls):
-        cls.file1 = os.path.expanduser(cls.config_parser.get('testssl', 'file_pretty1'))
+        cls.file1 = os.path.join(cls.root_path, cls.config_parser.get('testssl', 'dir_pretty'), cls.config_parser.get('testssl', 'file1'))
 
     @classmethod
     def _parse(cls):

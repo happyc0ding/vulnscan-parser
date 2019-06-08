@@ -88,16 +88,18 @@ class NmapParserXML(VSBaseParser):
         self._curr_filename = ''
 
     def _add_get_host(self, ip, hostnames):
+        # no separation via filename, duplicates will be merged (use "ip" as key instead of "ip-filehash")
         try:
             host = self._hosts[ip]
         except KeyError:
             host = NmapHost()
             # ip is named address in nmap
             host.address = ip
-            host.id = host.address
-            for hostname in hostnames:
-                host.add_hostname(hostname, 'unknown')
-            self._save_to_result_dict(self._hosts, host)
+            host.id = ip
+            self._hosts[ip] = host
+
+        for hostname in hostnames:
+            host.add_hostname(hostname, 'unknown')
 
         return host
 
