@@ -1,17 +1,16 @@
 import logging
-from pprint import pprint
 from collections import OrderedDict
 import os
 from itertools import islice
 
-from libnmap.parser import NmapParser, NmapParserException, NmapReport
+from libnmap.parser import NmapParser
 # try lxml, but use built-in as fallback
 try:
     from lxml import etree as elmtree
 except ImportError:
     from xml.etree import ElementTree as elmtree
 
-from vulnscan_parser.parser.base import VSBaseParser
+from vulnscan_parser.parser.xml import VsXmlParser
 from vulnscan_parser.models.nmap.host import NmapHost
 from vulnscan_parser.models.nmap.service import NmapService
 from vulnscan_parser.models.nmap.finding import NmapFinding
@@ -21,7 +20,7 @@ from vulnscan_parser.models.nmap.certificate import NmapCertificate
 LOGGER = logging.getLogger(__name__)
 
 
-class NmapParserXML(VSBaseParser):
+class NmapParserXML(VsXmlParser):
 
     def __init__(self):
         super().__init__()
@@ -30,29 +29,50 @@ class NmapParserXML(VSBaseParser):
         self._certificates = {}
         self._findings = {}
         self.allowed_port_states = ['open']
+        self.allow_huge_trees = True
 
-    def parse(self, filepath):
+    def parse(self, filepath, huge_tree=True):
+        if huge_tree and not self.allow_huge_trees:
+            LOGGER.warning('Trying to parse with huge_tree=True, but is disabled globally')
+            huge_tree = False
         if not self.is_valid_file(filepath):
             LOGGER.error('Ignoring invalid Nmap file: {}'.format(filepath))
             return
-        LOGGER.info('Parsing file {})'.format(filepath))
+
+        LOGGER.info('Parsing file {}'.format(filepath))
         self._curr_filename = os.path.basename(filepath)
         self._curr_file_hash = self.hash_file(filepath)
         # noinspection PyBroadException
         try:
-            self.libnmap_parse_xml_report(filepath)
+            try:
+                self.libnmap_parse_xml_report(filepath)
+            except elmtree.XMLSyntaxError as ex:
+                error_handled = False
+                # try with huge_tree=True, if necessary
+                if huge_tree and 'huge input lookup' in str(ex).lower():
+                    LOGGER.warning('Huge input detected, setting lxml\'s huge_tree=True. This may take time and consume'
+                                   ' lots of memory')
+                    try:
+                        self.libnmap_parse_xml_report(filepath, huge_tree=True)
+                        error_handled = True
+                    except elmtree.XMLSyntaxError:
+                        pass
+                # try with recover=True, if necessary
+                if not error_handled:
+                    self.libnmap_parse_xml_report(filepath, recover=True)
         except Exception:
             LOGGER.exception('Error while parsing {}'.format(filepath))
 
     # "re-implement" parsing loop from libnmap, but use a saxparser instead. This is only a little bit faster than using
     # "parse_fromfile" directly, but saves *a lot* of memory.
     # it is also ugly, since i use private class methods directly
-    def libnmap_parse_xml_report(self, filepath):
+    def libnmap_parse_xml_report(self, filepath, recover=False, huge_tree=False):
         # use recover=True in order to process cancelled scans (missing /nmaprun)
-        for event, element in elmtree.iterparse(filepath, tag='host', recover=True):
+        for event, element in elmtree.iterparse(filepath, tag='host', recover=recover, huge_tree=huge_tree):
             # don't care about the other stuff, i just need host and service info
             nmap_host = NmapParser._parse_xml_host(element)
             host = self._add_get_host(nmap_host.address, nmap_host.hostnames)
+
             for nmap_service in nmap_host.services:
                 self._add_service(host, nmap_service)
             element.clear()
@@ -81,7 +101,10 @@ class NmapParserXML(VSBaseParser):
         return {}
 
     def clear(self):
+        self.clear_all_but_hosts()
         self._hosts.clear()
+
+    def clear_all_but_hosts(self):
         self._services.clear()
         self._certificates.clear()
         self._findings.clear()
@@ -97,6 +120,7 @@ class NmapParserXML(VSBaseParser):
             host.address = ip
             host.id = ip
             self._hosts[ip] = host
+        host.src_file.add(self._curr_filename)
 
         for hostname in hostnames:
             host.add_hostname(hostname, 'unknown')
@@ -107,7 +131,7 @@ class NmapParserXML(VSBaseParser):
         if nmap_service.state not in self.allowed_port_states:
             return
 
-        port = nmap_service.port
+        port = int(nmap_service.port)
         protocol = nmap_service.protocol
         id_dict = nmap_service.service_dict.copy()
         try:
@@ -188,8 +212,8 @@ class NmapParserXML(VSBaseParser):
         if self._save_to_result_dict(self._certificates, cert):
             host.certificates.add(cert)
 
-    @staticmethod
-    def is_valid_file(file):
+    @classmethod
+    def is_valid_file(cls, file):
         try:
             with open(file, 'r') as file_handle:
                 head = list(islice(file_handle, 5))

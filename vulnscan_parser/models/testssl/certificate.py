@@ -8,6 +8,7 @@ class TestsslCertificate(VSBaseModel):
         super().__init__()
         self.finding = None
         self.m_public_key_algorithm = ''
+        self.m_san = []
 
     @property
     def ip(self):

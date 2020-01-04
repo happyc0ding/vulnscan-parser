@@ -21,6 +21,30 @@ class VSBaseParser(object):
         # set this flag if you want to ignore duplicate findings
         self.add_duplicates = True
 
+    @property
+    def hosts(self):
+        return {}
+
+    @property
+    def plugins(self):
+        return {}
+
+    @property
+    def findings(self):
+        return {}
+
+    @property
+    def certificates(self):
+        return {}
+
+    @property
+    def ciphers(self):
+        return {}
+
+    @property
+    def services(self):
+        return {}
+
     def _save_to_result_dict(self, result_dict, _object):
         is_saved = False
         if self.add_duplicates:
@@ -101,11 +125,14 @@ class VSBaseParser(object):
     def clear(self):
         raise NotImplemented()
 
+    def clear_all_but_hosts(self):
+        raise NotImplemented()
+
     def create_uid(self, _id):
         return '{}-{}'.format(_id, self._curr_file_hash)
 
-    @staticmethod
-    def get_file_head(filepath, num_of_lines):
+    @classmethod
+    def get_file_head(cls, filepath, num_of_lines):
         head = None
         try:
             with open(filepath, 'r') as file_handle:
@@ -115,6 +142,6 @@ class VSBaseParser(object):
 
         return head
 
-    @staticmethod
-    def is_valid_file(file):
+    @classmethod
+    def is_valid_file(cls, file):
         return True

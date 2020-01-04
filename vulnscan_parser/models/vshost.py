@@ -34,3 +34,6 @@ class VSHost(VSBaseModel):
         result['src_file'] = list(self.src_file)
 
         return result
+
+    def __repr__(self):
+        return f'{self.__class__.__name__}(ip={self.ip},hostnames={self.hostnames},src_file={self.src_file})'

@@ -26,6 +26,8 @@ class TestsslParserJson(VSBaseParser):
 
     CERT_NUM_REGEX = re.compile('<cert#(\d)>')
 
+    PRETTY_KEYS = ('protocols', 'ciphers', 'serverPreferences', 'serverDefaults', 'vulnerabilities', 'cipherTests')
+
     def __init__(self):
         super().__init__()
         self._hosts = {}
@@ -78,7 +80,9 @@ class TestsslParserJson(VSBaseParser):
                         self.parse_normal(json_data)
                 except KeyError:
                     try:
-                        if 'testssl' in json_data['Invocation']:
+                        # check if proper keys exist in structure
+                        if 'testssl' in json_data['Invocation'] and all(x[k] for x in json_data['scanResult']
+                                                                        for k in self.PRETTY_KEYS):
                             invalid_file = False
                     except KeyError:
                         pass
@@ -86,7 +90,7 @@ class TestsslParserJson(VSBaseParser):
                         self.parse_pretty(json_data)
 
             if invalid_file:
-                LOGGER.warning('Not a testssl file: {}'.format(filepath))
+                LOGGER.error('Not a proper testssl file: "{}". Check your results!'.format(filepath))
 
         except json.decoder.JSONDecodeError:
             LOGGER.exception('JSON error while decoding {}. File ignored'.format(filepath))
@@ -103,8 +107,7 @@ class TestsslParserJson(VSBaseParser):
             host = self._add_get_host(ip, hostname)
             self._add_service(host, port, sr['service'])
 
-            for rkey in ('protocols', 'ciphers', 'serverPreferences', 'serverDefaults',
-                         'vulnerabilities', 'cipherTests'):
+            for rkey in self.PRETTY_KEYS:
                 for entry in sr[rkey]:
                     self._handle_finding(host, port, hostname, entry)
 
@@ -140,8 +143,8 @@ class TestsslParserJson(VSBaseParser):
 
         return host
 
-    def clear(self):
-        self._hosts.clear()
+    def clear_all_but_hosts(self):
+        #self._hosts.clear()
         self._findings.clear()
         self._vulnerabilities.clear()
         self._ciphers.clear()
@@ -238,6 +241,10 @@ class TestsslParserJson(VSBaseParser):
                     cert.m_public_key_algorithm = algo
                     cert.m_public_key_len = int(bits)
 
+            # set additional fields
+            if prop_name == 'cert_subjectaltname':
+                cert.m_san = finding.finding.split(' ')
+
     def _handle_cipher(self, finding):
         cipher = TestsslCipher()
         cipher.src_file = self._curr_filename
@@ -306,9 +313,9 @@ class TestsslParserJson(VSBaseParser):
         if self._save_to_result_dict(self._services, service):
             host.services.add(service)
 
-    @staticmethod
-    def is_valid_file(file):
-        head = VSBaseParser.get_file_head(file, 16)
+    @classmethod
+    def is_valid_file(cls, file):
+        head = cls.get_file_head(file, 16)
         if head is None:
             LOGGER.error('Unable to read file: {}'.format(file))
             return False

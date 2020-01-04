@@ -11,7 +11,7 @@ class NessusCertificate(VSBaseModel):
         self.subject = {}
         self.issuer = {}
         self.public_key_len = ''
-        self.san = []
+        self.m_san = []
         self.signature_algorithm = ''
         self.not_before = ''
         self.not_after = ''

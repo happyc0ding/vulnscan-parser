@@ -43,8 +43,8 @@ class PemParserText(VSBaseParser):
     def ciphers(self):
         return {}
 
-    def clear(self):
-        self._hosts.clear()
+    def clear_all_but_hosts(self):
+        #self._hosts.clear()
         self._services.clear()
         self._certificates.clear()
         self._curr_filename = ''
@@ -139,9 +139,9 @@ class PemParserText(VSBaseParser):
                 cert.pem = ''.join(pem.split('\n')[1:-1])
                 cert.__dict__.update(self.pem_to_dict(x509_cert, filepath))
 
-    @staticmethod
-    def is_valid_file(file):
-        head = VSBaseParser.get_file_head(file, 1)
+    @classmethod
+    def is_valid_file(cls, file):
+        head = cls.get_file_head(file, 1)
         if head is None:
             LOGGER.error('Unable to read file: {}'.format(file))
             return False

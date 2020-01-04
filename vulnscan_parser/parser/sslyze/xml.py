@@ -4,7 +4,7 @@ from lxml import etree as elmtree
 import os
 from itertools import islice
 
-from vulnscan_parser.parser.base import VSBaseParser
+from vulnscan_parser.parser.xml import VsXmlParser
 from vulnscan_parser.models.sslyze.finding import SslyzeFinding
 from vulnscan_parser.models.sslyze.host import SslyzeHost
 from vulnscan_parser.models.sslyze.cipher import SslyzeCipher
@@ -15,7 +15,7 @@ from vulnscan_parser.models.sslyze.service import SslyzeService
 LOGGER = logging.getLogger(__name__)
 
 
-class SslyzeParserXML(VSBaseParser):
+class SslyzeParserXML(VsXmlParser):
 
     def __init__(self):
         super().__init__()
@@ -54,12 +54,15 @@ class SslyzeParserXML(VSBaseParser):
     def services(self):
         return self._services.copy()
 
-    def parse(self, filepath):
+    def parse(self, filepath, huge_tree=False):
+        if huge_tree and not self.allow_huge_trees:
+            LOGGER.warning('Trying to parse with huge_tree=True, but is disabled globally')
+            huge_tree = False
         LOGGER.info('Parsing file {})'.format(filepath))
         self._curr_filename = os.path.basename(filepath)
         self._curr_file_hash = self.hash_file(filepath)
         try:
-            for event, element in elmtree.iterparse(filepath, events=['end'], tag='target'):
+            for event, element in elmtree.iterparse(filepath, events=['end'], tag='target', huge_tree=huge_tree):
                 hostname = element.attrib['host']
                 # create new host object
                 try:
@@ -97,8 +100,8 @@ class SslyzeParserXML(VSBaseParser):
             LOGGER.exception('Error while parsing {}'.format(filepath))
             self.parse_errors += 1
 
-    def clear(self):
-        self._hosts.clear()
+    def clear_all_but_hosts(self):
+        #self._hosts.clear()
         self._findings.clear()
         self._vulnerabilities.clear()
         self._ciphers.clear()
@@ -248,9 +251,9 @@ class SslyzeParserXML(VSBaseParser):
         else:
             setattr(obj, elm.tag, elm.text)
 
-    @staticmethod
-    def is_valid_file(file):
-        head = VSBaseParser.get_file_head(file, 2)
+    @classmethod
+    def is_valid_file(cls, file):
+        head = cls.get_file_head(file, 2)
         if head is None:
             LOGGER.error('Unable to read file: {}'.format(file))
             return False

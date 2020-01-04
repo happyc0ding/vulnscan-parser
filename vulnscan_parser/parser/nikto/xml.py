@@ -10,7 +10,7 @@ try:
 except ImportError:
     from xml.etree import ElementTree as elmtree
 
-from vulnscan_parser.parser.base import VSBaseParser
+from vulnscan_parser.parser.xml import VsXmlParser
 from vulnscan_parser.models.nikto.host import NiktoHost
 from vulnscan_parser.models.nikto.service import NiktoService
 from vulnscan_parser.models.nikto.finding import NiktoFinding
@@ -20,7 +20,7 @@ from vulnscan_parser.models.nikto.vulnerability import NiktoVulnerability
 LOGGER = logging.getLogger(__name__)
 
 
-class NiktoParserXML(VSBaseParser):
+class NiktoParserXML(VsXmlParser):
 
     ATTR_BLACKLIST = [
         'notes',
@@ -34,16 +34,20 @@ class NiktoParserXML(VSBaseParser):
         self._findings = {}
         self._vulnerabilities = {}
 
-    def parse(self, filepath):
+    def parse(self, filepath, huge_tree=False):
+        if huge_tree and not self.allow_huge_trees:
+            LOGGER.warning('Trying to parse with huge_tree=True, but is disabled globally')
+            huge_tree = False
         self._curr_filename = os.path.basename(filepath)
         self._curr_file_hash = self.hash_file(filepath)
 
-        for event, scandetail_elm in elmtree.iterparse(filepath, tag='scandetails', events=['start']):
+        for event, scandetail_elm in elmtree.iterparse(
+                filepath, tag='scandetails', events=['start'], huge_tree=huge_tree):
             ip = scandetail_elm.attrib['targetip']
             hostname = scandetail_elm.attrib['targethostname']
             if ip == hostname:
                 hostname = ''
-            port = scandetail_elm.attrib['targetport']
+            port = int(scandetail_elm.attrib['targetport'])
             banner = scandetail_elm.attrib['targetbanner']
             host = self.add_get_host(ip, hostname)
             service = self.add_get_service(port, banner, host)

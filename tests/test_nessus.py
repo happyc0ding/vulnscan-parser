@@ -33,8 +33,9 @@ class NessusParseNormalFile1TestCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         config_parser = ConfigParser()
-        config_parser.read(os.path.join(os.path.dirname(__file__), 'config'))
-        cls.file1 = os.path.expanduser(config_parser.get('nessus', 'file1'))
+        tests_path = os.path.dirname(__file__)
+        config_parser.read(os.path.join(tests_path, 'config'))
+        cls.file1 = os.path.join(tests_path, config_parser.get('nessus', 'file1'))
         cls.parser = NessusParserXML()
         cls._parse()
 

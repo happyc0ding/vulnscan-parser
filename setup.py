@@ -1,10 +1,10 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='vulnscan-parser',
     version='0.2',
     author='happyc0ding',
-    packages=['vulnscan_parser.parser', 'vulnscan_parser.models'],
+    packages=find_packages(),
     description='Parser for vulnscan results, i.e. nessus, testssl, nmap files',
     long_description='Parses result files into python objects',
     #url='https://github.com/happyc0ding/',

@@ -10,7 +10,7 @@ LOGGER = logging.getLogger(__name__)
 from lxml import etree
 from lxml.etree import ParseError as ParseError
 
-from vulnscan_parser.parser.base import VSBaseParser
+from vulnscan_parser.parser.xml import VsXmlParser
 from vulnscan_parser.models.sslscan.finding import SslscanFinding
 from vulnscan_parser.models.sslscan.host import SslscanHost
 from vulnscan_parser.models.sslscan.cipher import SslscanCipher
@@ -19,7 +19,7 @@ from vulnscan_parser.models.sslscan.certificate import SslscanCertificate
 from vulnscan_parser.models.sslscan.service import SslscanService
 
 
-class SSLScanParserXML(VSBaseParser):
+class SSLScanParserXML(VsXmlParser):
 
     def __init__(self):
         super().__init__()
@@ -58,7 +58,10 @@ class SSLScanParserXML(VSBaseParser):
     def services(self):
         return self._services.copy()
 
-    def parse(self, filepath):
+    def parse(self, filepath, huge_tree=False):
+        if huge_tree and not self.allow_huge_trees:
+            LOGGER.warning('Trying to parse with huge_tree=True, but is disabled globally')
+            huge_tree = False
         LOGGER.info('Parsing file {})'.format(filepath))
         self._curr_filename = os.path.basename(filepath)
         self._curr_file_hash = self.hash_file(filepath)
@@ -68,7 +71,7 @@ class SSLScanParserXML(VSBaseParser):
 
         # using flags and iterative parsing seems a little over the top, however the sslscan xml structure is
         # easy enough to handle this quickly and efficiently
-        for event, element in etree.iterparse(filepath, events=('start', 'end')):
+        for event, element in etree.iterparse(filepath, events=('start', 'end'), huge_tree=huge_tree):
             if 'start' == event:
                 if 'ssltest' == element.tag:
                     ip = element.attrib['host']
@@ -196,8 +199,7 @@ class SSLScanParserXML(VSBaseParser):
 
         return finding
 
-    def clear(self):
-        self._hosts.clear()
+    def clear_all_but_hosts(self):
         self._findings.clear()
         self._vulnerabilities.clear()
         self._ciphers.clear()
@@ -205,10 +207,9 @@ class SSLScanParserXML(VSBaseParser):
         self._services.clear()
         self.parse_errors = 0
 
-
-    @staticmethod
-    def is_valid_file(file):
-        head = VSBaseParser.get_file_head(file, 2)
+    @classmethod
+    def is_valid_file(cls, file):
+        head = cls.get_file_head(file, 2)
         if head is None:
             LOGGER.error('Unable to read file: {}'.format(file))
             return False

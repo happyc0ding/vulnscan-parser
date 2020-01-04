@@ -11,7 +11,7 @@ import ipaddress
 
 from pyparsing import CharsNotIn, LineEnd, Word, ZeroOrMore, delimitedList, alphanums
 
-from vulnscan_parser.parser.base import VSBaseParser
+from vulnscan_parser.parser.xml import VsXmlParser
 from vulnscan_parser.models.nessus.finding import NessusFinding
 from vulnscan_parser.models.nessus.host import NessusHost
 from vulnscan_parser.models.nessus.plugin import NessusPlugin
@@ -22,7 +22,7 @@ from vulnscan_parser.models.nessus.service import NessusService
 LOGGER = logging.getLogger(__name__)
 
 
-class NessusParserXML(VSBaseParser):
+class NessusParserXML(VsXmlParser):
 
     # 10863 SSL VSCertificate Information
     PLUGIN_ID_CERT_INFO = 10863
@@ -105,6 +105,12 @@ class NessusParserXML(VSBaseParser):
         'id'
     }
 
+    # cast these properties to int
+    PROPERTY_TO_INT_MAP = {
+        'port',
+        'severity'
+    }
+
     def __init__(self):
         super().__init__()
         # blacklist for plugin attributes/data. change this, if needed
@@ -162,15 +168,18 @@ class NessusParserXML(VSBaseParser):
         return self._services.copy()
 
     def clear(self):
+        self.clear_all_but_hosts()
+        self._hosts.clear()
+
+    def clear_all_but_hosts(self):
         self._curr_filename = ''
         self._services.clear()
         self._certificates.clear()
         self._ciphers.clear()
         self._findings.clear()
         self._plugins.clear()
-        self._hosts.clear()
 
-    def parse(self, filepath):
+    def parse(self, filepath, huge_tree=False):
         LOGGER.info('Parsing file {}'.format(filepath))
         self._curr_filename = os.path.basename(filepath)
         self._curr_file_hash = self.hash_file(filepath)
@@ -182,7 +191,8 @@ class NessusParserXML(VSBaseParser):
         # noinspection PyBroadException
         try:
             for event, element in elmtree.iterparse(
-                    filepath, events=('start', 'end'), tag=('ReportHost', 'ReportItem', 'HostProperties')):
+                    filepath, events=('start', 'end'), tag=('ReportHost', 'ReportItem', 'HostProperties'),
+                    huge_tree=self.allow_huge_trees):
                 if 'start' == event:
                     if self.log:
                         LOGGER.debug('Got element "{elm}" with attrs "{attrs}"'.format(
@@ -199,6 +209,10 @@ class NessusParserXML(VSBaseParser):
                     elif 'ReportItem' == element.tag:
                         plugin = self.handle_plugin(element, host)
                         self.handle_finding(element, host, plugin)
+                    elif 'ReportHost' == element.tag:
+                        # add services
+                        # TODO: only simple service detection for now
+                        self._parse_add_services(host)
                     # # iterative parsing: yield after every host
                     # elif parse_hosts_iterative and 'ReportHost' == element.tag:
                     #     plugin_dict = {plugin.pluginID: plugin for plugin in host.plugins}
@@ -229,8 +243,8 @@ class NessusParserXML(VSBaseParser):
                 if plugin_elm_child is not None:
                     find_val = plugin_elm_child.text
             if find_val is not None:
-                if 'port' == f_key:
-                    # fix format for port
+                if f_key in self.PROPERTY_TO_INT_MAP:
+                    # fix format
                     find_val = int(find_val)
                 elif 'protocol' == f_key:
                     find_val = find_val.upper()
@@ -355,9 +369,6 @@ class NessusParserXML(VSBaseParser):
         host.src_file.add(self._curr_filename)
         # add hostnames
         self._parse_add_hostnames(host)
-        # add services
-        # TODO: only simple service detection for now
-        self._parse_add_services(host)
 
         #LOGGER.debug('handled host {} with {}'.format(host.ip, host))
 
@@ -429,7 +440,7 @@ class NessusParserXML(VSBaseParser):
                     if line.startswith('Extension: Subject Alternative Name'):
                         is_san = True
                 elif is_san and line.startswith('DNS: '):
-                    cert.san.append(line[len('DNS: '):])
+                    cert.m_san.append(line[len('DNS: '):])
                 else:
                     self._setattr_by_condition_str(line, 'SHA-1 Fingerprint: ', cert, 'sha2_fingerprint')
                     self._setattr_by_condition_str(line, 'Signature Algorithm: ', cert, 'signature_algorithm')
@@ -611,9 +622,9 @@ class NessusParserXML(VSBaseParser):
                 # add service to host
                 finding.host.services.add(service)
 
-    @staticmethod
-    def is_valid_file(file):
-        head = VSBaseParser.get_file_head(file, 2)
+    @classmethod
+    def is_valid_file(cls, file):
+        head = cls.get_file_head(file, 2)
         if head is None:
             LOGGER.error('Unable to read file: {}'.format(file))
             return False
@@ -656,8 +667,8 @@ class NessusParserXML(VSBaseParser):
                         for prefix in ('Installed version :', 'Reported version :'):
                             sw_version = self._get_output_value_by_prefix(line, prefix)
                             break
-
-                        sw_name = self._get_output_value_by_prefix(line, 'Product                :')
+                        if not sw_name:
+                            sw_name = self._get_output_value_by_prefix(line, 'Product                :')
 
             # TODO: normalize name
 
